@@ -3,55 +3,93 @@
 <head>  
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>Mohd Shahnawaz | Bio</title>  
+    <title>Mohd Shahnawaz | Portfolio</title>  
     <style>  
+        /* Base Styles */  
         body {  
-            font-family: 'Arial', sans-serif;  
+            font-family: 'Roboto', sans-serif;  
             margin: 0;  
             padding: 0;  
             line-height: 1.6;  
-            color: #333;  
-            background-color: #f4f4f9;  
+            color: #2c3e50;  
+            background-color: #ecf0f1;  
         }  
         header {  
-            background-color: #007BFF;  
+            background: linear-gradient(90deg, #007BFF, #4CAF50);  
             color: white;  
             text-align: center;  
-            padding: 20px 0;  
+            padding: 40px 20px;  
         }  
         header h1 {  
+            font-size: 3rem;  
             margin: 0;  
-            font-size: 2.5rem;  
         }  
         header p {  
-            margin: 10px 0 0;  
+            font-size: 1.2rem;  
+            margin: 10px 0;  
+        }  
+        nav {  
+            display: flex;  
+            justify-content: center;  
+            background: #007BFF;  
+            padding: 10px 0;  
+        }  
+        nav a {  
+            color: white;  
+            text-decoration: none;  
+            margin: 0 15px;  
+            font-size: 1rem;  
+        }  
+        nav a:hover {  
+            text-decoration: underline;  
         }  
         main {  
-            max-width: 800px;  
+            max-width: 900px;  
             margin: 20px auto;  
             padding: 20px;  
             background: white;  
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);  
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);  
             border-radius: 10px;  
         }  
         section {  
-            margin-bottom: 20px;  
+            margin-bottom: 30px;  
         }  
         section h2 {  
-            border-bottom: 2px solid #007BFF;  
-            display: inline-block;  
-            padding-bottom: 5px;  
-            margin-bottom: 10px;  
+            font-size: 1.8rem;  
+            color: #007BFF;  
+            margin-bottom: 15px;  
+            position: relative;  
+        }  
+        section h2::after {  
+            content: '';  
+            width: 50px;  
+            height: 4px;  
+            background: #4CAF50;  
+            position: absolute;  
+            bottom: -5px;  
+            left: 0;  
+        }  
+        ul {  
+            list-style-type: square;  
+            padding-left: 20px;  
         }  
         footer {  
             text-align: center;  
-            padding: 10px;  
-            background: #007BFF;  
+            padding: 15px;  
+            background: #4CAF50;  
             color: white;  
-            position: relative;  
-            bottom: 0;  
-            width: 100%;  
+            margin-top: 20px;  
+            font-size: 0.9rem;  
         }  
+        footer a {  
+            color: #FFD700;  
+            text-decoration: none;  
+        }  
+        footer a:hover {  
+            text-decoration: underline;  
+        }  
+
+        /* Hover Effects and Links */  
         a {  
             color: #007BFF;  
             text-decoration: none;  
@@ -59,41 +97,61 @@
         a:hover {  
             text-decoration: underline;  
         }  
+
+        /* Responsive Design */  
+        @media (max-width: 600px) {  
+            header h1 {  
+                font-size: 2rem;  
+            }  
+            header p {  
+                font-size: 1rem;  
+            }  
+        }  
     </style>  
 </head>  
 <body>  
     <header>  
         <h1>Mohd Shahnawaz</h1>  
-        <p>Class 12 Student | Aspiring Learner</p>  
-        <p>Studying in A.M. Oxford Public School</p>
+        <p>Class 12 Student | Aspiring Developer</p>  
+        <p>Exploring Web Development, Coding & More</p>
     </header>  
+
+    <nav>  
+        <a href="#about">About Me</a>  
+        <a href="#skills">Skills</a>  
+        <a href="#contact">Contact</a>  
+    </nav>  
+
     <main>  
-        <section>  
+        <section id="about">  
             <h2>About Me</h2>  
-            <p>Hello! I'm Mohd Shahnawaz,18 years old, a Class 12th student passionate about learning and self-growth. I strive to make a difference in everything I do and aspire to explore new opportunities in coding,scripting,web developing etc.</p>  
+            <p>Hello! I'm Mohd Shahnawaz, an 18-year-old Class 12th student from Prayagraj, Uttar Pradesh, India. Currently studying at A.M. Oxford Public School & College, I have a keen interest in web development, coding, and scripting. I am constantly exploring new opportunities to grow and develop my technical skills.</p>  
         </section>  
-        <section>  
+
+        <section id="skills">  
             <h2>Skills</h2>  
             <ul>  
-                <li>Strong academic foundation in coding and web developing</li>  
-                <li>Effective communication and teamwork</li>  
-                <li>Basic coding knowledge (if applicable)</li>  
-                <li>Problem-solving and critical thinking</li>  
+                <li>Proficient in Web Development fundamentals</li>  
+                <li>JavaScript coding knowledge</li>  
+                <li>Basic understanding of DCA concepts</li>  
+                <li>Strong analytical and problem-solving skills</li>  
             </ul>  
         </section>  
-        <section>  
+
+        <section id="contact">  
             <h2>Contact</h2>  
-            <p>Feel free to reach out to me:</p>  
+            <p>Feel free to reach out to me via the following platforms:</p>  
             <ul>  
-                <li>Email: <a href="mailto:szcamps@gmail.com">Szcamps@gmail.com</a></li>  
-                <li>GitHub: <a href="https://github.com/szkhan7860">Github.com/szkhan7860</a></li>  
-                <li>Instagram: <a href="https://www.instagram.com/Shahnawaz._.2006/">@Shahnawaz._.2006</a></li>
-                <li>Telegram: <a href="http://telegram.me/Sukuna_Verified">Ryomen Sukuna</a></li>
+                <li>Email: <a href="mailto:szcamps@gmail.com">szcamps@gmail.com</a></li>  
+                <li>GitHub: <a href="https://github.com/szkhan7860" target="_blank">github.com/szkhan7860</a></li>  
+                <li>Instagram: <a href="https://www.instagram.com/Shahnawaz._.2006/" target="_blank">@Shahnawaz._.2006</a></li>  
+                <li>Telegram: <a href="http://telegram.me/Sukuna_Verified" target="_blank">Ryomen Sukuna</a></li>  
             </ul>  
         </section>  
     </main>  
+
     <footer>  
-        <p>&copy; 2024 Mohd Shahnawaz | All Rights Reserved</p>  
+        <p>&copy; 2024 <a href="#">Mohd Shahnawaz</a> | All Rights Reserved</p>  
     </footer>  
 </body>  
-</html>
+                                  </html>
