@@ -320,6 +320,13 @@
     revealEls.forEach(el=>io.observe(el));
 
     document.getElementById('year').textContent=new Date().getFullYear();
+    // Avatar click expand effect
+const header = document.querySelector('.site-header');
+const avatar = document.querySelector('.avatar');
+
+avatar.addEventListener('click', () => {
+  header.classList.toggle('expanded');
+});
   </script>
 </body>
 </html>
