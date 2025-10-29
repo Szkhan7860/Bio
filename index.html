@@ -50,12 +50,10 @@
       margin-bottom:28px;
       text-align:center;
       gap:12px;
-      position:relative;
-      z-index:10;
       transition:all 0.4s ease;
     }
 
-    /* Avatar click animation with backdrop blur */
+    /* Avatar animation (no blur) */
     .avatar {
       width:95px;
       height:95px;
@@ -65,95 +63,29 @@
       box-shadow:0 6px 14px rgba(0,0,0,0.25);
       margin-bottom:12px;
       cursor:pointer;
-      transition:transform 0.5s ease, box-shadow 0.5s ease;
-      position:relative;
-      z-index:10;
+      transition:transform 0.45s ease, box-shadow 0.45s ease;
     }
     .avatar img {
       width:100%;
       height:100%;
       object-fit:cover;
       display:block;
-      transition:transform 0.5s ease;
+      transition:transform 0.45s ease;
     }
     .avatar:hover img {transform:scale(1.05);}
 
-    /* Expanded glowing avatar */
+    /* Expanded effect */
     .site-header.expanded .avatar {
-      transform:scale(2.4);
-      margin-bottom:24px;
-      position:relative;
-      z-index:2001;
-      box-shadow:
-        0 0 25px rgba(11,116,255,0.6),
-        0 0 60px rgba(0,255,255,0.35),
-        0 0 120px rgba(0,255,255,0.25);
-      animation: glowPulse 3s ease-in-out infinite alternate;
+      transform:scale(2.8);
+      box-shadow:0 10px 35px rgba(11,116,255,0.4);
+      margin-bottom:30px;
     }
-
-    @keyframes glowPulse {
-      0% {
-        box-shadow:
-          0 0 25px rgba(11,116,255,0.6),
-          0 0 60px rgba(0,255,255,0.35),
-          0 0 120px rgba(0,255,255,0.25);
-      }
-      100% {
-        box-shadow:
-          0 0 30px rgba(0,200,255,0.7),
-          0 0 80px rgba(11,116,255,0.4),
-          0 0 140px rgba(11,116,255,0.3);
-      }
-    }
-
-    .site-header.expanded .avatar img {transform:scale(1.1);}
     .site-header.expanded .name-title,
     .site-header.expanded .tagline {
-      transform:translateY(70px);
-      opacity:0.9;
-      transition:transform 0.5s ease, opacity 0.5s ease;
+      transform:translateY(80px);
+      transition:transform 0.45s ease;
+      opacity:0.95;
     }
-    .site-header.expanded ~ #themeToggle {
-      opacity:0.3;
-      transition:opacity 0.4s ease;
-    }
-
-    /* Background blur overlay */
-    .avatar-overlay {
-      position:fixed;
-      inset:0;
-      backdrop-filter:blur(10px);
-      background:rgba(0,0,0,0.3);
-      opacity:0;
-      transition:opacity 0.4s ease;
-      z-index:1000;
-      pointer-events:none;
-    }
-    .avatar-overlay.active {
-      opacity:1;
-      pointer-events:all;
-    }
-
-    /* Close button */
-    .avatar-close {
-      position:fixed;
-      top:22px;
-      right:22px;
-      background:rgba(255,255,255,0.1);
-      border:none;
-      color:#fff;
-      font-size:20px;
-      border-radius:50%;
-      width:38px;
-      height:38px;
-      display:grid;
-      place-items:center;
-      cursor:pointer;
-      opacity:0;
-      z-index:1002;
-      transition:opacity 0.3s ease;
-    }
-    .avatar-close.visible {opacity:1;}
 
     .name-title {
       font-size:26px;
@@ -164,7 +96,12 @@
       -webkit-text-fill-color:transparent;
     }
     .name-title span {font-weight:900;}
-    .tagline {color:var(--muted);font-size:14px;margin-top:6px;font-weight:500;}
+    .tagline {
+      color:var(--muted);
+      font-size:14px;
+      margin-top:6px;
+      font-weight:500;
+    }
 
     /* Floating theme toggle */
     .theme-toggle {
@@ -340,8 +277,6 @@
     </footer>
   </div>
 
-  <div class="avatar-overlay" id="avatarOverlay"></div>
-  <button id="avatarClose" class="avatar-close"><i class="fa-solid fa-xmark"></i></button>
   <button id="topBtn"><i class="fa-solid fa-arrow-up"></i></button>
 
   <script>
@@ -375,30 +310,14 @@
 
     document.getElementById('year').textContent=new Date().getFullYear();
 
-    // Avatar click expand effect with glow + blur + close
+    // Avatar click expand effect (simple zoom)
     const header=document.querySelector('.site-header');
     const avatar=document.querySelector('.avatar');
-    const overlay=document.getElementById('avatarOverlay');
-    const closeBtn=document.getElementById('avatarClose');
-    avatar.addEventListener('click', () => {
-      header.classList.add('expanded');
-      overlay.classList.add('active');
-      closeBtn.classList.add('visible');
-      document.body.style.overflow = 'hidden';
-    });
-
-    closeBtn.addEventListener('click', () => {
-      header.classList.remove('expanded');
-      overlay.classList.remove('active');
-      closeBtn.classList.remove('visible');
-      document.body.style.overflow = '';
-    });
-
-    overlay.addEventListener('click', () => {
-      header.classList.remove('expanded');
-      overlay.classList.remove('active');
-      closeBtn.classList.remove('visible');
-      document.body.style.overflow = '';
+    let expanded=false;
+    avatar.addEventListener('click',()=>{
+      expanded=!expanded;
+      if(expanded){header.classList.add('expanded');}
+      else{header.classList.remove('expanded');}
     });
   </script>
 </body>
