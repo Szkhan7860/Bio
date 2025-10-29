@@ -52,16 +52,39 @@
     gap:12px;
   }
   .avatar {
-    width:95px;
-    height:95px;
-    border-radius:50%;
-    overflow:hidden;
-    background:var(--card);
-    box-shadow:0 6px 14px rgba(0,0,0,0.25);
-    margin-bottom:12px;
-    transition:transform 0.3s ease;
-  }
-  .avatar:hover {transform:scale(1.07);}
+  width:95px;
+  height:95px;
+  border-radius:50%;
+  overflow:hidden;
+  background:var(--card);
+  box-shadow:0 6px 14px rgba(0,0,0,0.25);
+  margin-bottom:12px;
+  cursor:pointer;
+  transition:transform 0.4s ease, box-shadow 0.4s ease;
+}
+.avatar img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform 0.4s ease;
+}
+.avatar:hover img {
+  transform:scale(1.05);
+}
+
+.site-header.expanded .avatar {
+  transform:scale(2.2);
+  box-shadow:0 12px 40px rgba(11,116,255,0.3);
+  margin-bottom:24px;
+}
+
+.site-header.expanded .name-title,
+.site-header.expanded .tagline {
+  transform:translateY(40px);
+  opacity:0.9;
+  transition:transform 0.4s ease, opacity 0.4s ease;
+}
   .avatar img {
     width:100%;
     height:100%;
