@@ -50,10 +50,10 @@
       margin-bottom:28px;
       text-align:center;
       gap:12px;
-      transition:all 0.4s ease;
+      transition:all 0.5s ease-in-out;
     }
 
-    /* Avatar animation (no blur) */
+    /* Avatar animation (balanced and smooth both ways) */
     .avatar {
       width:95px;
       height:95px;
@@ -61,29 +61,36 @@
       overflow:hidden;
       background:var(--card);
       box-shadow:0 6px 14px rgba(0,0,0,0.25);
-      margin-bottom:12px;
+      margin:12px auto;
       cursor:pointer;
-      transition:transform 0.45s ease, box-shadow 0.45s ease;
+      transition:transform 0.6s ease-in-out, box-shadow 0.6s ease-in-out, margin 0.6s ease-in-out;
+      position:relative;
+      z-index:2;
     }
+
     .avatar img {
       width:100%;
       height:100%;
       object-fit:cover;
       display:block;
-      transition:transform 0.45s ease;
+      transition:transform 0.6s ease-in-out;
     }
-    .avatar:hover img {transform:scale(1.05);}
 
-    /* Expanded effect */
-    .site-header.expanded .avatar {
-      transform:scale(2.8);
-      box-shadow:0 10px 35px rgba(11,116,255,0.4);
-      margin-bottom:30px;
+    .avatar:hover img {
+      transform:scale(1.05);
     }
+
+    /* Expanded state (smooth zoom and reverse) */
+    .site-header.expanded .avatar {
+      transform:scale(2.4) translateY(20px);
+      box-shadow:0 12px 35px rgba(11,116,255,0.4);
+      margin-bottom:40px;
+    }
+
     .site-header.expanded .name-title,
     .site-header.expanded .tagline {
-      transform:translateY(80px);
-      transition:transform 0.45s ease;
+      transform:translateY(70px);
+      transition:transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
       opacity:0.95;
     }
 
@@ -181,7 +188,7 @@
     [data-theme="dark"] .socials a {background:rgba(255,255,255,0.04);}
     .socials a:hover {transform:translateY(-6px);}
 
-    /* Improved contact links */
+    /* Contact links */
     #contact a {
       color: var(--text);
       text-decoration: none;
@@ -310,14 +317,14 @@
 
     document.getElementById('year').textContent=new Date().getFullYear();
 
-    // Avatar click expand effect (simple zoom)
+    // Avatar click expand effect (smooth both ways)
     const header=document.querySelector('.site-header');
     const avatar=document.querySelector('.avatar');
     let expanded=false;
+
     avatar.addEventListener('click',()=>{
       expanded=!expanded;
-      if(expanded){header.classList.add('expanded');}
-      else{header.classList.remove('expanded');}
+      header.classList.toggle('expanded',expanded);
     });
   </script>
 </body>
