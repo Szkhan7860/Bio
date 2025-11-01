@@ -348,6 +348,18 @@
     avatar.addEventListener('click',()=>{
       expanded=!expanded;
       header.classList.toggle('expanded',expanded);
+      <script>
+  const avatar = document.querySelector('.avatar');
+  const hero = document.querySelector('.hero');
+
+  avatar.addEventListener('click', () => {
+    avatar.classList.toggle('enlarged');
+    hero.style.transition = 'transform 0.6s ease-in-out';
+    hero.style.transform = avatar.classList.contains('enlarged')
+      ? 'translateY(60px)'
+      : 'translateY(0)';
+  });
+</script>
     });
   </script>
 </body>
